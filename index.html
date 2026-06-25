@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PlantWijzer</title>
+  <link rel="stylesheet" href="assets/portal.css">
+</head>
+<body>
+<header class="siteHeader">
+  <a class="brand" href="#home" aria-label="PlantWijzer">
+    <span class="brandMark">✿</span>
+    <span><strong>PlantWijzer</strong><small>inheemse en zuiverende planten</small></span>
+  </a>
+</header>
+
+<main>
+  <section id="home" class="homeHero view active">
+    <div class="homeCopy">
+      <span class="eyebrow">Plant lokaal. Versterk biodiversiteit.</span>
+      <h1>Vind de juiste plant voor jouw plek.</h1>
+      <p>Ontdek inheemse planten gerangschikt volgens hun voorkomen op de Amberlijst, de streek-eigen lijst en biodiversiteitsmeerwaarde.</p>
+    </div>
+
+    <div class="homeMenu" aria-label="Hoofdkeuzes">
+      <button class="menuCard" data-view="native">
+        <span>🌿</span><h2>Vind inheemse planten</h2>
+        <p>Vul je postcode in en krijg bloemen, grassen, bomen en hagen die passen bij jouw omgeving.</p>
+      </button>
+      <button class="menuCard" data-view="fyto">
+        <span>🧪</span><h2>Vind zuiverende planten</h2>
+        <p>Kies een verontreiniging en medium, en ontdek planten met fytoremediatieonderzoek.</p>
+      </button>
+      <button class="menuCard" data-view="start">
+        <span>🪴</span><h2>Ga aan de slag</h2>
+        <p>Koop planten, boek advies of laat je bijstaan door experts.</p>
+      </button>
+      <button class="menuCard" data-view="saved">
+        <span>♡</span><h2>Mijn persoonlijke lijst</h2>
+        <p>Bekijk je bewaarde planten. <strong id="savedCount">0</strong> bewaard.</p>
+      </button>
+    </div>
+  </section>
+
+  <section id="view-native" class="view">
+    <button class="backHome" data-view="home">← terug naar start</button>
+    <div class="sectionIntro">
+      <span class="eyebrow">Stap 1</span>
+      <h2>Vind inheemse planten via je postcode.</h2>
+      <p>Je hoeft geen plantnaam in te vullen. De app geeft zelf een selectie terug op basis van je Ecoflora-bestanden en de kolom <code>postcode</code>.</p>
+    </div>
+
+    <form id="postcodeForm" class="postcodeForm">
+      <label for="postcode">Postcode</label>
+      <div class="postcodeRow">
+        <input id="postcode" inputmode="numeric" maxlength="4" placeholder="Bijv. 3500">
+        <button type="submit">Toon mijn planten</button>
+      </div>
+      <small>Ondersteund: <code>postcode</code>, <code>postcodes</code>, <code>postcode_van</code> + <code>postcode_tot</code>. Getallen zoals <code>3500.0</code> worden als <code>3500</code> gelezen.</small>
+    </form>
+
+    <div id="nativeStatus" class="statusCard">Vul je postcode in om te starten.</div>
+
+    <section class="plantGroup">
+      <div class="groupHead">
+        <div><span class="groupIcon">❀</span><h3>Bloemen &amp; grassen</h3></div>
+        <button class="moreBtn" data-more="flowers" hidden>Meer planten</button>
+      </div>
+      <div id="flowersGrid" class="plantGrid"></div>
+    </section>
+
+    <section class="plantGroup">
+      <div class="groupHead">
+        <div><span class="groupIcon">♧</span><h3>Bomen &amp; hagen</h3></div>
+        <button class="moreBtn" data-more="woody" hidden>Meer planten</button>
+      </div>
+      <div id="woodyGrid" class="plantGrid"></div>
+    </section>
+  </section>
+
+  <section id="view-fyto" class="view">
+    <button class="backHome" data-view="home">← terug naar start</button>
+    <div class="sectionIntro">
+      <span class="eyebrow">Stap 2</span>
+      <h2>Vind zuiverende planten.</h2>
+      <p>Je hoeft geen plantnaam in te vullen. Laat het naamveld leeg om alle passende zuiverende planten te tonen.</p>
+    </div>
+
+    <div class="finderLayout">
+      <aside class="filterRail">
+        <label>Verontreiniging
+          <select id="fytoPollutant">
+            <option value="PFAS">PFAS</option>
+            <option value="metalen">Zware metalen</option>
+            <option value="organische">Dioxinen en polychloorbifenylen (PCBs)</option>
+          </select>
+        </label>
+        <label>Medium
+          <select id="fytoMedium">
+            <option value="bodemwater">Bodem en water</option>
+            <option value="lucht">Lucht</option>
+          </select>
+        </label>
+        <label>Planttype
+          <select id="fytoType"><option value="ALL">Alle planttypes</option></select>
+        </label>
+        <label>Optioneel: zoek in resultaten
+          <input id="fytoNameSearch" placeholder="Bijv. riet, wilg, Salix">
+        </label>
+        <label>Zoek in alle velden
+          <input id="fytoSearchAll" placeholder="Bijv. PFOS, Cd, hydroponics, Europa">
+        </label>
+        <button id="runFyto">Zoek zuiverende planten</button>
+      </aside>
+      <div class="finderResults">
+        <div id="fytoStatus" class="statusCard">Kies je filters en klik op zoeken.</div>
+        <div id="fytoGrid" class="plantGrid"></div>
+        <button id="fytoMore" class="wideMore" hidden>Meer resultaten</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-start" class="view">
+    <button class="backHome" data-view="home">← terug naar start</button>
+    <div class="sectionIntro">
+      <span class="eyebrow">Van keuze naar uitvoering</span>
+      <h2>Ga aan de slag met planten, advies en professionele begeleiding.</h2>
+    </div>
+
+    <div class="actionMosaic">
+      <a class="actionCard" data-link="ecofloraPlants"><span>🪴</span><h3>Koop inheemse planten</h3><p>Bekijk het aanbod van Ecoflora.</p></a>
+      <a class="actionCard" data-link="tuinranger"><span>🧭</span><h3>Boek een gratis Tuinranger</h3><p>Krijg natuurvriendelijk tuinadvies op maat.</p></a>
+      <a class="actionCard" data-link="ecofloraMixtures"><span>🌼</span><h3>Start met een bloemenmix</h3><p>Kies een mengsel dat bij je plek past.</p></a>
+      <article class="actionCard featured">
+        <span>🧪</span><h3>Wil je je grond zuiveren?</h3><p>Ga aan de slag met zuiverende planten, fytopreventie en fytoremediatie.</p>
+        <button data-goto="fyto">Vind zuiverende planten</button>
+        <a data-link="soilAdvice">Moet je saneren? Laat je bijstaan.</a>
+      </article>
+      <article class="actionCard expert">
+        <span>🏗️</span><h3>Plant met een doel</h3><p>Laat je project uitwerken door experts.</p>
+        <a data-link="talea">Ontdek Talea</a><a data-link="taleaMenu">Vind jouw menu</a>
+      </article>
+    </div>
+
+    <section class="proofBand">
+      <span>Meer biodiversiteit</span><span>Lagere onderhoudsdruk</span><span>Juiste plant, juiste plek</span><span>Onderbouwde brondata</span>
+    </section>
+
+    <h2 class="subTitle">Leer meer over onze inheemse planten</h2>
+    <div class="learnGrid">
+      <article><span>🌳</span><h3>Keystone species voor gezonde lucht</h3><p>Leer welke soorten uitzonderlijk veel ecologische relaties ondersteunen.</p></article>
+      <article><span>🪏</span><h3>Hoe plant ik planten?</h3><p>Open een praktische gids of bekijk een video.</p><a data-link="plantGuide">Open gids</a> · <a data-link="taleaVideo">Bekijk video</a></article>
+      <article><span>⚠️</span><h3>Vijf populaire planten met weinig meerwaarde</h3><p>Vergelijk sierwaarde met ecologische functie en kies bewust.</p></article>
+    </div>
+
+    <h2 class="subTitle">Trek jouw favoriete dieren aan</h2>
+    <div class="wildlifeIcons">
+      <button>🐝<span>Bijen</span></button>
+      <button>🦋<span>Vlinders</span></button>
+      <button>🐦<span>Zangvogels</span></button>
+      <button>🌿<span>Keystone species</span></button>
+    </div>
+
+    <section class="tourBand">
+      <div><span class="eyebrow">Nieuw hier?</span><h2>Volg een korte rondleiding.</h2><p>Bekijk in twee minuten hoe je postcode, filters, favorieten en detailstudies gebruikt.</p></div>
+      <button id="tourBtn">Bekijk nu</button>
+    </section>
+  </section>
+
+  <section id="view-saved" class="view">
+    <button class="backHome" data-view="home">← terug naar start</button>
+    <div class="sectionIntro"><span class="eyebrow">Jouw shortlist</span><h2>Mijn persoonlijke plantenlijst</h2><p>Deze lijst wordt lokaal in je browser bewaard.</p></div>
+    <div id="savedGrid" class="plantGrid"></div>
+    <button id="clearSaved" class="wideMore">Wis mijn lijst</button>
+  </section>
+</main>
+
+<aside id="plantDrawer" class="drawer" aria-hidden="true">
+  <div class="drawerHead"><div><small id="drawerKicker"></small><h2 id="drawerTitle">Plant</h2><p id="drawerSubtitle"></p></div><button id="drawerClose">×</button></div>
+  <div class="drawerBody">
+    <div id="drawerImages" class="drawerImages"></div>
+    <div id="drawerScore" class="scorePanel"></div>
+    <div id="drawerSummary"></div>
+    <details open><summary>Alle eigenschappen uit Ecoflora</summary><div id="rawDetails" class="rawDetails"></div></details>
+    <section id="drawerFyto" hidden>
+      <h3>Fytoremediatie</h3>
+      <div id="fytoSummary"></div>
+      <div class="detailTools">
+        <input id="detailSearch" placeholder="Zoek in studies, bv. PFOS hydroponics Europa">
+        <button id="detailCsv">Download detail CSV</button>
+        <button id="extendedCsv">Download extended CSV</button>
+      </div>
+      <div id="detailMeta"></div>
+      <div class="detailTableWrap"><table id="detailTable"><thead></thead><tbody></tbody></table></div>
+    </section>
+    <button id="savePlant" class="savePlant">♡ Bewaar deze plant</button>
+  </div>
+</aside>
+
+<div id="tourModal" class="modal" hidden>
+  <div class="modalCard"><button id="tourClose">×</button><span class="eyebrow">Rondleiding</span><h2>Zo werkt PlantWijzer</h2>
+  <ol><li>Kies een van de vier starttegels.</li><li>Vul je postcode in voor inheemse planten.</li><li>Gebruik verontreiniging en medium voor zuiverende planten.</li><li>Klik een plant open voor details en studies.</li></ol></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="assets/portal.js?v=3"></script>
+</body>
+</html>
