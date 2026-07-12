@@ -1,0 +1,170 @@
+{
+  "typologies": {
+    "Bomen": {
+      "label": "Bomen",
+      "category": "woody",
+      "subtypes": {
+        "bosgoed": [
+          "data/typologies/Bomen/ecoflora_bosgoed"
+        ],
+        "fruitbomen": [
+          "data/typologies/Bomen/ecoflora_fruitbomen"
+        ],
+        "laanbomen": [
+          "data/typologies/Bomen/ecoflora_laanbomen"
+        ],
+        "solitaire_bomen": [
+          "data/typologies/Bomen/ecoflora_solitaire_bomen"
+        ]
+      }
+    },
+    "Haagplanten": {
+      "label": "Hagen",
+      "category": "woody",
+      "subtypes": {
+        "haagplanten": [
+          "data/typologies/Haagplanten/ecoflora_haagplanten"
+        ],
+        "haagpakketten": [
+          "data/typologies/Haagplanten/ecoflora_haagpakketten"
+        ]
+      }
+    },
+    "Bloemenweide": {
+      "label": "Bloemenweide",
+      "category": "flowers",
+      "subtypes": {
+        "bloembollen": [
+          "data/typologies/Bloemenweide/ecoflora_bloembollen"
+        ],
+        "bloemenweide": [
+          "data/typologies/Bloemenweide/ecoflora_bloemenweides"
+        ],
+        "rozen": [
+          "data/typologies/Bloemenweide/ecoflora_rozen"
+        ],
+        "zaden_bloemen": [
+          "data/typologies/Bloemenweide/ecoflora_zaden_bloemen"
+        ]
+      }
+    },
+    "Inheemse_planten": {
+      "label": "Inheemse planten",
+      "category": "flowers",
+      "subtypes": {
+        "borders": [
+          "data/typologies/Inheemse_planten/ecoflora_borders"
+        ],
+        "grassen": [
+          "data/typologies/Inheemse_planten/ecoflora_grassen"
+        ],
+        "varens": [
+          "data/typologies/Inheemse_planten/Ecoflora_varens"
+        ],
+        "wilde_planten": [
+          "data/typologies/Inheemse_planten/ecoflora_wilde_planten"
+        ]
+      }
+    },
+    "Wadi_vijver": {
+      "label": "Wadi en vijver",
+      "category": "flowers",
+      "subtypes": {
+        "waterplanten": [
+          "data/typologies/Wadi_vijver/Ecoflora_waterplanten"
+        ]
+      }
+    },
+    "Weide": {
+      "label": "Weide",
+      "category": "flowers",
+      "subtypes": {
+        "begrazingsmengsels": [
+          "data/typologies/Weide/ecoflora_begrazingsmengsels"
+        ],
+        "groenbemesters": [
+          "data/typologies/Weide/ecoflora_groenbemesters"
+        ]
+      }
+    },
+    "Gevelgroen": {
+      "label": "Gevelgroen",
+      "category": "flowers",
+      "subtypes": {
+        "klimplanten": [
+          "data/typologies/Gevelgroen/ecoflora_klimplanten"
+        ]
+      }
+    },
+    "Fruit_groenten_kruiden": {
+      "label": "Fruit, groenten en kruiden",
+      "category": "flowers",
+      "subtypes": {
+        "kleinfruit": [
+          "data/typologies/Fruit_groenten_kruiden/ecoflora_kleinfruit"
+        ],
+        "kruiden": [
+          "data/typologies/Fruit_groenten_kruiden/ecoflora_kruiden"
+        ],
+        "zadenpakketten": [
+          "data/typologies/Fruit_groenten_kruiden/ecoflora_zadenpakketten"
+        ]
+      }
+    }
+  },
+  "layers": {
+    "klimaatbomenlijst": [
+      "data/layers/klimaatbomen/Klimaatbomen_amber"
+    ],
+    "amberlijst": [
+      "data/layers/amber/Amber_bomen",
+      "data/layers/amber/Amber_heesters",
+      "data/layers/amber/Amber_klimplanten",
+      "data/layers/amber/Amber_lage_bodembedekkers_3060",
+      "data/layers/amber/Amber_zeerlage_bodembedekkers_530",
+      "data/layers/amber/Amber_streekeigen_inheemse_vasteplanten",
+      "data/layers/amber/Amber_Oost-Kempisch_puinwaaierdistrict"
+    ],
+    "regionale_soortenlijst": [
+      "data/layers/regionale_soortenlijst/Regionale_soortenlijst_Oost-Kempisch puinwaaierdistrict"
+    ],
+    "fytoremediatie": {
+      "Bomen": [
+        "data/layers/Fytoremediatie/Fytoremediatie_bomen"
+      ],
+      "Haagplanten": [
+        "data/layers/Fytoremediatie/Fytoremediatie_haagplanten"
+      ],
+      "Wadi_vijver": [
+        "data/layers/Fytoremediatie/Fytoremediatie_wadi"
+      ],
+      "Bloemenweide": [
+        "data/layers/Fytoremediatie/Fytoremediatie_bloemenweide"
+      ],
+      "Inheemse_planten": [
+        "data/layers/Fytoremediatie/Fytoremediatie_inheemse_planten"
+      ],
+      "Gevelgroen": [
+        "data/layers/Fytoremediatie/Fytoremediatie_gevelgroen"
+      ],
+      "Weide": [
+        "data/layers/Fytoremediatie/Fytoremediatie_weide"
+      ],
+      "Fruit_groenten_kruiden": [
+        "data/layers/Fytoremediatie/Fytoremediatie_fruit_groenten_kruiden"
+      ]
+    }
+  },
+  "portal": {
+    "links": {
+      "ecofloraPlants": "https://www.ecoflora.be/nl/webshop/planten",
+      "ecofloraMixtures": "https://www.ecoflora.be/nl/content/bloemenweides",
+      "tuinranger": "https://www.tuinrangers.be/tuinadvies-aanvragen",
+      "soilAdvice": "https://ovam.vlaanderen.be/bodem-onderzoeken-en-indien-nodig-saneren",
+      "talea": "#",
+      "taleaMenu": "#",
+      "plantGuide": "#",
+      "taleaVideo": "#"
+    }
+  }
+}
